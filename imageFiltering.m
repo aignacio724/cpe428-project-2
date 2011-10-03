@@ -28,11 +28,12 @@ for i = 1:(rows - 2),
     end
 end
 
-cleanImage=uint8(c); %convert back to grayscale image
+cleanImage=uint8(cleanImage); %convert back to grayscale image
 figure
 subplot(221), imshow(a), title('Boat');
 subplot(222), imshow(tempImage), title('Padded Boat');
 subplot(223), imshow(cleanImage), title('Filtered');
+
 
 
 whos
