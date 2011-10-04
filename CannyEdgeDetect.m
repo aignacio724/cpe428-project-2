@@ -1,9 +1,9 @@
 %Project 2
-%Part B, Edge Detection
+%Part B, Canny Edge Detection
 clear;
 clc;
 
-%Applying Canny Edge Detection
+%Read In Images
 a = rgb2gray(imread('corner_window.jpg'));
 b = rgb2gray(imread('corridor.jpg'));
 c = rgb2gray(imread('New York City.jpg'));
@@ -122,6 +122,3 @@ subplot(221), imshow(G1), title('Corner Window Sigma = 4 Threshold[0.4 0.5]');
 subplot(222), imshow(H1), title('Corridor Sigma = 4 Threshold[0.4 0.5]');
 subplot(223), imshow(I1), title('New York City Sigma = 4 Threshold[0.4 0.5]');
 subplot(224), imshow(J1), title('Tree Sigma = 4 Threshold[0.4 0.5]');
-
-
-who
