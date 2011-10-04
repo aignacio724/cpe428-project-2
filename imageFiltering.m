@@ -1,7 +1,7 @@
 %Project 2
 %Part A: Image Filtering
 
-a = imread('Boat2.tif');
+a = imread('building.gif');
 cleanImage = zeros(size(a)); %Matrix used to store the new noise redueced image
 tempImage = padarray(a, [1 1]); %Padded Matrix for window size of 3x3
 
@@ -30,10 +30,8 @@ end
 
 cleanImage=uint8(cleanImage); %convert back to grayscale image
 figure
-subplot(221), imshow(a), title('Boat');
-subplot(222), imshow(tempImage), title('Padded Boat');
+subplot(221), imshow(a), title('Oirignal Image');
+subplot(222), imshow(tempImage), title('Padded Image');
 subplot(223), imshow(cleanImage), title('Filtered');
-
-
 
 whos
