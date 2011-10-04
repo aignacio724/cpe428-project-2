@@ -3,16 +3,19 @@
 clear;
 clc;
 
-a = imread('building.gif');
-cleanImage = zeros(size(a)); %Matrix used to store the new noise redueced image
-tempImage = padarray(a, [1 1]); %Padded Matrix for window size of 3x3
+a = imread('Boat2.tif'); %Salt and Pepper
+b = imread('building.gif'); %Gaussian
+medianImage = zeros(size(a)); %Matrix used to store the new noise redueced image
+tempImage = padarray(a, [1 1]); %Padded Matrix for window size of 3x3 median filter
 
 val = 3;   %Filtering intensity
 winSize = val*val; %Area of Window
 mid = ceil(winSize/2); %Median of Window
+sigma = 2;
 
 [rows columns] = size(tempImage); %Obtaining the number of Rows and Columns
 
+%Do the median filtering
 for i = 1:(rows - 2),
     for j = 1:(columns - 2),
         window = zeros(winSize); %1D array Sliding Window for filtering
@@ -24,21 +27,18 @@ for i = 1:(rows - 2),
             end
         end
         window = sort(window); %Sort the window matrix to find median
-        cleanImage(i,j) = window(mid);
+        medianImage(i,j) = window(mid);
     end
 end
 
-cleanImage=uint8(cleanImage); %convert back to grayscale image
+medianImage=uint8(medianImage); %convert back to grayscale image
 
-%%# Read an image
-I = imread('building.gif');
-%# Create the gaussian filter with hsize = [5 5] and sigma = 2
-gaussMatrix = fspecial('gaussian',[5 5],2);
-%# Filter it
-Ig = imfilter(I,gaussMatrix,'same');
+%# Create the gaussian filter
+gaussImage = gaussianFilter(b, val, sigma);
 
+%Display Images
 figure
-subplot(221), imshow(a), title('Oirignal Image');
-subplot(222), imshow(tempImage), title('Padded Image');
-subplot(223), imshow(cleanImage), title('Median');
-subplot(224), imshow(Ig), title('Gaussian');
+subplot(221), imshow(a), title('Oirignal Boat Image');
+subplot(222), imshow(medianImage), title('Median Filter');
+subplot(223), imshow(b), title('Original Building');
+subplot(224), imshow(gaussImage), title('Gaussian Filter');
