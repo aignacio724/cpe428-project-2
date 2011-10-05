@@ -21,10 +21,10 @@ gc = gaussianFilter(c, windowSize, sigma);
 gd = gaussianFilter(d, windowSize, sigma);
 
 %obtain the gradian matrices for each gaussian filtered image
-[GAms GAmst GAabs GAabst] = gradiants(ga, sobelMask);
-[GBms GBmst GBabs GBabst] = gradiants(gb, sobelMask);
-[GCms GCmst GCabs GCabst] = gradiants(gc, sobelMask);
-[GDms GDmst GDabs GDabst] = gradiants(gd, sobelMask);
+[GAms GAmst GAabs GAabst] = gradients(ga, sobelMask);
+[GBms GBmst GBabs GBabst] = gradients(gb, sobelMask);
+[GCms GCmst GCabs GCabst] = gradients(gc, sobelMask);
+[GDms GDmst GDabs GDabst] = gradients(gd, sobelMask);
 
 %Display the Images, both the Original and Filterd
 figure

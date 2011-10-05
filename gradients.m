@@ -1,6 +1,6 @@
-function [Gms Gmst Gabs Gabst] = gradiants(g, mask)
-    Gx = conv2(g, mask);
-    Gy = conv2(g, mask');
+function [Gms Gmst Gabs Gabst] = gradients(g, mask)
+    Gx = convolve(g, mask);
+    Gy = convolve(g, mask');
 
     Gms = uint8(sqrt(Gx.*Gx + Gy.*Gy));
     Gmst = im2bw(Gms, 0.95);
