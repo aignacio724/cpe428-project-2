@@ -7,6 +7,7 @@ a = imread('Boat2.tif'); %Salt and Pepper
 b = imread('building.gif'); %Gaussian
 medianImage = zeros(size(a)); %Matrix used to store the new noise redueced image
 tempImage = padarray(a, [1 1]); %Padded Matrix for window size of 3x3 median filter
+tempImage2 = padarray(b, [1 1]);
 
 val = 3;   %Filtering intensity
 winSize = val*val; %Area of Window
@@ -34,7 +35,7 @@ end
 medianImage=uint8(medianImage); %convert back to grayscale image
 
 %# Create the gaussian filter
-gaussImage = gaussianFilter(b, val, sigma);
+gaussImage = gaussianFilter(tempImage2, val, sigma);
 
 %Display Images
 figure
