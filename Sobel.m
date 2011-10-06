@@ -12,19 +12,21 @@ windowSize = 5;
 sigma = 2;
 
 % Sobel
-sobelMask = fspecial('sobel');
+%sobelMask = fspecial('sobel');
 
 %Obtain the gaussian filters for each image
-ga = gaussianFilter(a, windowSize, sigma);
-gb = gaussianFilter(b, windowSize, sigma);
-gc = gaussianFilter(c, windowSize, sigma);
-gd = gaussianFilter(d, windowSize, sigma);
-
+%{
+    ga = gaussianFilter(a, windowSize, sigma);
+    gb = gaussianFilter(b, windowSize, sigma);
+    gc = gaussianFilter(c, windowSize, sigma);
+    gd = gaussianFilter(d, windowSize, sigma);
+%}
 %obtain the gradian matrices for each gaussian filtered image
-[GAms GAmst GAabs GAabst] = gradients(ga, sobelMask);
-[GBms GBmst GBabs GBabst] = gradients(gb, sobelMask);
-[GCms GCmst GCabs GCabst] = gradients(gc, sobelMask);
-[GDms GDmst GDabs GDabst] = gradients(gd, sobelMask);
+
+[ga GAms GAmst GAabs GAabst] = EdgeDetect(a, 'sobel', windowSize, sigma);%gradients(ga, sobelMask);
+[gb GBms GBmst GBabs GBabst] = EdgeDetect(b, 'sobel', windowSize, sigma);%gradients(gb, sobelMask);
+[gc GCms GCmst GCabs GCabst] = EdgeDetect(c, 'sobel', windowSize, sigma);%gradients(gc, sobelMask);
+[gd GDms GDmst GDabs GDabst] = EdgeDetect(d, 'sobel', windowSize, sigma);%gradients(gd, sobelMask);
 
 %Display the Images, both the Original and Filterd
 figure
