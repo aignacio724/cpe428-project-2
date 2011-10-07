@@ -11,16 +11,6 @@ d = rgb2gray(imread('tree.jpg'));
 windowSize = 5;
 sigma = 2;
 
-% Sobel
-%sobelMask = fspecial('sobel');
-
-%Obtain the gaussian filters for each image
-%{
-    ga = gaussianFilter(a, windowSize, sigma);
-    gb = gaussianFilter(b, windowSize, sigma);
-    gc = gaussianFilter(c, windowSize, sigma);
-    gd = gaussianFilter(d, windowSize, sigma);
-%}
 %obtain the gradian matrices for each gaussian filtered image
 
 [ga GAms GAmst GAabs GAabst] = EdgeDetect(a, 'sobel', windowSize, sigma);%gradients(ga, sobelMask);

@@ -14,19 +14,12 @@ sigma = 2;
 % Prewitt
 %PrewittMask = fspecial('Prewitt');
 
-%Obtain the gaussian filters for each image
-%{
-    ga = gaussianFilter(a, windowSize, sigma);
-    gb = gaussianFilter(b, windowSize, sigma);
-    gc = gaussianFilter(c, windowSize, sigma);
-    gd = gaussianFilter(d, windowSize, sigma);
-%}
 %obtain the gradian matrices for each gaussian filtered image
 
-[ga GAms GAmst GAabs GAabst] = EdgeDetect(a, 'prewitt', windowSize, sigma);%gradients(ga, prewittMask);
-[gb GBms GBmst GBabs GBabst] = EdgeDetect(b, 'prewitt', windowSize, sigma);%gradients(gb, prewittMask);
-[gc GCms GCmst GCabs GCabst] = EdgeDetect(c, 'prewitt', windowSize, sigma);%gradients(gc, prewittMask);
-[gd GDms GDmst GDabs GDabst] = EdgeDetect(d, 'prewitt', windowSize, sigma);%gradients(gd, prewittMask);
+[ga GAms GAmst GAabs GAabst] = EdgeDetect(a, 'prewitt', windowSize, sigma);
+[gb GBms GBmst GBabs GBabst] = EdgeDetect(b, 'prewitt', windowSize, sigma);
+[gc GCms GCmst GCabs GCabst] = EdgeDetect(c, 'prewitt', windowSize, sigma);
+[gd GDms GDmst GDabs GDabst] = EdgeDetect(d, 'prewitt', windowSize, sigma);
 
 %Display the Images, both the Original and Filterd
 figure
