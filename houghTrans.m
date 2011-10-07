@@ -39,7 +39,7 @@ plot(x,y,'s','color','black');
 
 lines = houghlines(GAabst,TA,RA,P,'FillGap',5,'MinLength',7);
 
-subplot(222), imshow(GAabst), hold on 
+subplot(222), imshow(GAabst), title('Sobel Filter'), hold on 
 max_len = 0;
 
 %Overlay the found lines onto the binary image
@@ -78,7 +78,7 @@ plot(x,y,'s','color','black');
 
 lines = houghlines(GBabst,TB,RB,P,'FillGap',5,'MinLength',7);
 
-subplot(222), imshow(GBabst), hold on 
+subplot(222), imshow(GBabst), title('Sobel Filter'), hold on 
 
 %Overlay the found lines onto the binary image
 max_len = 0;
@@ -117,7 +117,7 @@ plot(x,y,'s','color','black');
 
 lines = houghlines(GCabst,TC,RC,P,'FillGap',5,'MinLength',7);
 
-subplot(222), imshow(GCabst), hold on 
+subplot(222), imshow(GCabst), title('Sobel Filter'), hold on 
 
 %Overlay the found lines onto the binary image
 max_len = 0;
@@ -156,7 +156,7 @@ plot(x,y,'s','color','black');
 
 lines = houghlines(GDabst,TD,RD,P,'FillGap',5,'MinLength',7);
 
-subplot(222), imshow(GDabst), hold on 
+subplot(222), imshow(GDabst), title('Sobel Filter'), hold on 
 max_len = 0;
 
 %Overlay the found lines onto the binary image
